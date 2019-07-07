@@ -1,0 +1,36 @@
+<% provide(:title, 'All circulations') %>
+<h1>貸出情報</h1>
+
+<table>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'circulation' %>
+    </div>
+  </div>
+
+  <% @circulations.each do |circulation| %>
+  <tr>
+    <td style='border-style:solid'>
+      <%= link_to circulation.id, circulation %>
+    </td>
+    <td style='border-style:solid'>
+      <%= circulation.user_name %>
+    </td>
+    <td style='border-style:solid'>
+      <%= circulation.book_name %>
+    </td>
+    <td style='border-style:solid'>
+      <%= circulation.checkout_date %>
+    </td>
+    <td style='border-style:solid'>
+      <%= circulation.return_date %>
+    </td>
+    <td style='border-style:solid'>
+      <%= link_to '編集', edit_circulation_path(circulation.id) %>
+    </td>
+    <td style='border-style:solid'>
+      <%= link_to '返却', return_circulation_path(circulation.id), method: :patch %>
+    </td>
+  </tr>
+  <% end %>
+</table>

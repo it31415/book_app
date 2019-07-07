@@ -1,4 +1,30 @@
-<p><%= @circulation.user_name %></p>
-<p><%= @circulation.book_name %></p>
-<p><%= @circulation.checkout_date %></p>
-<p><%= @circulation.return_date %></p>
+<% provide(:title, "#{@circulation.id}") %>
+
+<table>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'circulation' %>
+    </div>
+  </div>
+
+  <tr>
+    <td style='border-style:solid'>
+      <%= @circulation.id %>
+    </td>
+    <td style='border-style:solid'>
+      <%= @circulation.user_name %>
+    </td>
+    <td style='border-style:solid'>
+      <%= @circulation.book_name %>
+    </td>
+    <td style='border-style:solid'>
+      <%= @circulation.checkout_date %>
+    </td>
+    <td style='border-style:solid'>
+      <%= @circulation.return_date %>
+    </td>
+    <td style='border-style:solid'>
+      <%= link_to '編集', edit_circulation_path %>
+    </td>
+  </tr>
+</table>

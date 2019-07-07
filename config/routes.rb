@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get  '/circulate',  to: 'circulations#new'
   post '/circulate',  to: 'circulations#create'
   resources :circulations
+  patch '/circulations/:id/return', to: 'circulations#return', as: 'return_circulation'
 end
