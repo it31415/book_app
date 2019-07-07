@@ -31,6 +31,9 @@
     <td style='border-style:solid'>
       <%= link_to '返却', return_circulation_path(circulation.id), method: :patch %>
     </td>
+    <td style='border-style:solid'>
+    <%= link_to "削除", circulation, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+    </td>
   </tr>
   <% end %>
 </table>
