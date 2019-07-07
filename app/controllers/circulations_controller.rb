@@ -46,6 +46,12 @@ class CirculationsController < ApplicationController
     end
   end
 
+  def destroy
+    Circulation.find(params[:id]).destroy
+    flash[:success] = "貸出情報を削除しました"
+    redirect_to circulations_url
+  end
+
   private
 
     def circulation_params
