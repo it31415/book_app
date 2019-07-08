@@ -171,7 +171,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionview (>= 5.1.6.2)
-  bootstrap-sass (= 3.4.1)
+  bootstrap-sass (>= 3.4.1)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
   jbuilder (= 2.7.0)
