@@ -10,6 +10,7 @@ class CirculationsController < ApplicationController
 
   def new
     @circulation = Circulation.new
+    @circulation.checkout_date = Date.today.to_s
   end
 
   def create
