@@ -1,7 +1,7 @@
 class CirculationsController < ApplicationController
 
   def index
-    @circulations = Circulation.order(:id)
+    @circulations = Circulation.order(:checkout_date, :id)
   end
 
   def show
