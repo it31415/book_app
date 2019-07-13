@@ -1,7 +1,7 @@
 class CirculationsController < ApplicationController
 
   def index
-    @circulations = Circulation.all
+    @circulations = Circulation.order
   end
 
   def show
