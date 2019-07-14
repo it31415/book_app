@@ -1,12 +1,7 @@
 <% provide(:title, "#{@circulation.id}") %>
 
 <table align="center">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= render 'circulation' %>
-    </div>
-  </div>
-
+  <%= render 'circulation' %>
   <tr>
     <td style='border-style:solid'>
       <%= @circulation.id %>
