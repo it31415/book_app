@@ -3,9 +3,11 @@
     <%= link_to "Book app", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
+        <li><%= link_to "ホーム",   root_path %></li>
         <li><%= link_to "貸出一覧", circulations_path %></li>
         <li><%= link_to "貸出ページ", circulate_path %></li>
+        <li><%= link_to "本一覧", books_path %></li>
+        <li><%= link_to "本の登録ページ", register_books_path %></li>
       </ul>
     </nav>
   </div>
