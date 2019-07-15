@@ -16,7 +16,7 @@ class CirculationsController < ApplicationController
   def create
     @circulation = Circulation.new(circulation_params)
     if @circulation.save
-      flash[:success] = "本を貸し出しました!"
+      flash[:success] = "本を借りました!"
       redirect_to @circulation
     else
       render 'new'
