@@ -1,0 +1,16 @@
+<% provide(:title, "#{@book.id}") %>
+
+<table align="center">
+  <%= render 'column_name' %>
+  <tr>
+    <td style='border-style:solid'>
+      <%= @book.id %>
+    </td>
+    <td style='border-style:solid'>
+      <%= @book.book_title %>
+    </td>
+    <td style='border-style:solid'>
+      <%= link_to '編集', edit_book_path %>
+    </td>
+  </tr>
+</table>

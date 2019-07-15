@@ -30,7 +30,7 @@ class CirculationsController < ApplicationController
   def update
     @circulation = Circulation.find(params[:id])
     if @circulation.update_attributes(circulation_params)
-      flash[:success] = "貸出情報が更新されました！"
+      flash[:success] = "貸出情報を更新しました！"
       redirect_to @circulation
     else
       render 'edit'
