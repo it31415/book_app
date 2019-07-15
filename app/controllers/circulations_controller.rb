@@ -58,7 +58,7 @@ class CirculationsController < ApplicationController
     def circulation_params
       params.require(:circulation).permit(
         :user_name,
-        :book_name,
+        :book_title,
         :checkout_date,
         :return_date
       )

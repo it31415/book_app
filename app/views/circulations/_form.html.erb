@@ -1,16 +1,16 @@
 <%= form_for(@circulation, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: @circulation %>
 
-  <%= f.label :user_name %>
+  <%= f.label :利用者名 %>
       <%= f.text_field :user_name, class: 'form-control' %>
 
-      <%= f.label :book_name %>
-      <%= f.text_field :book_name, class: 'form-control' %>
+      <%= f.label :本のタイトル %>
+      <%= f.text_field :book_title, class: 'form-control' %>
 
-      <%= f.label :checkout_date %>
+      <%= f.label :貸出日 %>
       <%= f.text_field :checkout_date, class: 'form-control' %>
 
-      <%= f.label :return_date %>
+      <%= f.label :返却日 %>
       <%= f.text_field :return_date, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>

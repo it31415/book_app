@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20190706142009) do
 
   create_table "circulations", force: :cascade do |t|
     t.string "user_name"
-    t.string "book_name"
+    t.string "book_title"
     t.date "checkout_date"
     t.date "return_date"
     t.datetime "created_at", null: false
