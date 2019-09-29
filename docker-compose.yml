@@ -1,0 +1,56 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6-alpine
+    restart: always
+    volumes:
+      - ./containers/db:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: pass
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    container_name: db
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/var/src/app
+    ports:
+      - '80:3000'
+    environment:
+      RAILS_ENV: development
+      PG_DATABASE: postgres
+      PG_PASSWORD: pass
+      PG_USER: postgres
+      SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
+    links:
+      - db
+      - node
+    working_dir: /var/src/app
+    command: /bin/sh -c "rm -f /var/src/app/tmp/pids/server.pid;bundle exec rails s -b 0.0.0.0"
+    cap_add:
+      - ALL  # Add all privilege
+    container_name: app
+    tty: true
+    stdin_open: true
+    privileged: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+    dns:
+      - 8.8.8.8
+  node:
+    build: frontend
+    working_dir: /var/src/app/frontend
+    volumes:
+      - ./frontend:/var/src/app/frontend:delegated
+      - /var/src/app/frontend/node_modules
+    ports:
+      - 9090:8080
+    command: ./node_modules/.bin/webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js
+    container_name: node
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+    logging:
+      driver: none
+    container_name: selenium_chrome
